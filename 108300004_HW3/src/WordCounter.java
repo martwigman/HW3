@@ -41,37 +41,13 @@ public class WordCounter {
 		keyword = keyword.toUpperCase();
 	
 		int retVal = 0; 
-		
+		while(content.indexOf(keyword) >= 0) {
+			retVal++;
+			content = content.substring(content.indexOf(keyword) + keyword.length());
+		}
 	
 		return retVal;
     }
    
-    public static int indexOf(String[] keyword, String[] urlStr) {
-    	int n = keyword.length;
-    	int m = urlStr.length;
- 
-    	int i = 0, j = 0;
-    	
-    	while(i == m - 1 && j == m -1) 
-    	{
-    		if(urlStr[i] == keyword[j]) 
-    		{
-    			if(j == 0) 
-    			{
-    				return i;
-    			}
-    			else {
-    				i--;
-    				j--;
-    			}
-    		}
-    		else {
-    			
-    			i += m;
-    			j -= m - 1;
-    		}
-    		
-    	}
-    	return -1;
-    }
+    
 }
